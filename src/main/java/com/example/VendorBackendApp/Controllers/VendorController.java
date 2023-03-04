@@ -31,9 +31,10 @@ public class VendorController {
 
     @GetMapping("/get_vendor")
     public ResponseEntity<Vendor> getVendor(@RequestParam("id") int id){
-       Vendor vendor =  vendorService.getVendor(id);
 
-       return new ResponseEntity<>(vendor , HttpStatus.BAD_REQUEST);
+        Vendor vendor = vendorService.getVendor(id);
+        return new ResponseEntity<>(vendor, HttpStatus.ACCEPTED);
+
 
     }
 

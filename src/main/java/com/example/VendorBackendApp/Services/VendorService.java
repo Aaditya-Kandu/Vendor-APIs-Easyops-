@@ -24,8 +24,7 @@ public class VendorService {
         
     }
 
-    public Vendor getVendor(int id)
-    {
+    public Vendor getVendor(int id) {
 
       Vendor vendor = vendorRepository.findById(id).get();
       return vendor;

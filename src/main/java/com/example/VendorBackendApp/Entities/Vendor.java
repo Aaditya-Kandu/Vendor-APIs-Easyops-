@@ -24,7 +24,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@Validated
 public class Vendor {
 
     @Id
