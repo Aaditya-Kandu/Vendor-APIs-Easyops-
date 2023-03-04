@@ -7,9 +7,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Type;
-import org.intellij.lang.annotations.RegExp;
+import org.hibernate.query.criteria.internal.expression.function.AggregationFunction;
+//import org.intellij.lang.annotations.RegExp;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.UUID;
 
 @Entity
@@ -18,6 +24,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
+@Validated
 public class Vendor {
 
     @Id
@@ -34,16 +41,19 @@ public class Vendor {
 
     private String city;
 
+
     private String state;
 
-
+    @NotEmpty
+    @Size(min = 6,max = 6)
     public String pinCode;
 
     @Column(unique = true)
+    @Size(min = 10, max = 10, message = "Phone number should have  10 characters")
     private String vendorPhoneNo;
 
-
     @Column(unique = true)
+    @Email
     private String email;
 
 

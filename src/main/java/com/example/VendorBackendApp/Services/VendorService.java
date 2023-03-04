@@ -31,10 +31,7 @@ public class VendorService {
       return vendor;
     }
 
-    public String deleteVendor(int id){
-
-        if(getVendor(id) == null)
-            return "Invalid Id";
+    public String deleteVendor(int id) throws Exception{
 
         vendorRepository.deleteById(id);
         return "User delete successfully";

@@ -41,16 +41,20 @@ public class VendorController {
     @DeleteMapping("/delete_vendor")
     public ResponseEntity<String> deleteVendor(@RequestParam("id") int id){
 
-        String response = vendorService.deleteVendor(id);
-        return new ResponseEntity<>(response , HttpStatus.ACCEPTED);
+        try{
+            String response = vendorService.deleteVendor(id);
+            return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+        }catch (Exception e){
+            String response = "User Id Invalid";
+            return new ResponseEntity<>(response , HttpStatus.BAD_REQUEST);
+        }
+
     }
 
     @PutMapping("/update_vendor")
     public String updateVendor(@RequestBody() VendorUpdateDTO vendorUpdateDTO){
 
         return vendorService.updateVendor(vendorUpdateDTO);
-
-       // return new ResponseEntity<>(response , HttpStatus.UPGRADE_REQUIRED);
 
 
     }
