@@ -47,11 +47,11 @@ public class Vendor {
     @Size(min = 6,max = 6)
     public String pinCode;
 
-    @Column(unique = true)
+    @Column(unique = true,nullable = false)
     @Size(min = 10, max = 10, message = "Phone number should have  10 characters")
     private String vendorPhoneNo;
 
-    @Column(unique = true)
+    @Column(unique = true,nullable = false)
     @Email
     private String email;
 
